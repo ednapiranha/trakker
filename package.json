@@ -7,10 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "should": "~1.2.0"
+    "should": ">= 1.2.0"
   },
   "devDependencies": {
-    "mocha": "~1.6.0"
+    "mocha": ">= 1.6.0"
   },
   "scripts": {
     "test": "make test"
