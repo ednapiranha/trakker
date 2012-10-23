@@ -21,35 +21,31 @@ describe('trakker', function() {
       if (err) {
         console.error('Error reading tracklist1.txt');
       } else {
-        trakker.generate(data, function(err, tracks) {
-          if (err) {
-            console.error('Could not process tracks');
-          } else {
-            var trackList = [];
+        trakker.generate(data, function(tracks) {
+          var trackList = [];
 
-            tracks.forEach(function(track) {
-              var newTrack = {
-                id: track.position,
-                startTime: track.startTime,
-                title: track.title
-              }
+          tracks.forEach(function(track) {
+            var newTrack = {
+              id: track.position,
+              startTime: track.startTime,
+              title: track.title
+            }
 
-              trackList.push(newTrack);
-            });
+            trackList.push(newTrack);
+          });
 
-            trackList.should.have.length(3);
-            trackList[0].id.should.equal('01');
-            trackList[0].startTime.should.equal('00:10:00');
-            trackList[0].title.should.equal('Track 1 [By DJ Meow Meow]');
-            trackList[1].id.should.equal('02');
-            trackList[1].startTime.should.equal('20:30:10');
-            trackList[1].title.should.equal('Track 2 [By MC Woof]');
-            trackList[2].id.should.equal('03');
-            trackList[2].startTime.should.equal('202:31:10');
-            trackList[2].title.should.equal('Track 3 -- [By DJ Scratchy]');
+          trackList.should.have.length(3);
+          trackList[0].id.should.equal('01');
+          trackList[0].startTime.should.equal('00:10:00');
+          trackList[0].title.should.equal('Track 1 [By DJ Meow Meow]');
+          trackList[1].id.should.equal('02');
+          trackList[1].startTime.should.equal('20:30:10');
+          trackList[1].title.should.equal('Track 2 [By MC Woof]');
+          trackList[2].id.should.equal('03');
+          trackList[2].startTime.should.equal('202:31:10');
+          trackList[2].title.should.equal('Track 3 -- [By DJ Scratchy]');
 
-            done();
-          }
+          done();
         });
       }
     });
@@ -60,35 +56,31 @@ describe('trakker', function() {
       if (err) {
         console.error('Error reading tracklist2.txt');
       } else {
-        trakker.generate(data, function(err, tracks) {
-          if (err) {
-            console.error('Could not process tracks');
-          } else {
-            var trackList = [];
+        trakker.generate(data, function(tracks) {
+          var trackList = [];
 
-            tracks.forEach(function(track) {
-              var newTrack = {
-                id: track.position,
-                startTime: track.startTime,
-                title: track.title
-              }
+          tracks.forEach(function(track) {
+            var newTrack = {
+              id: track.position,
+              startTime: track.startTime,
+              title: track.title
+            }
 
-              trackList.push(newTrack);
-            });
+            trackList.push(newTrack);
+          });
 
-            trackList.should.have.length(3);
-            trackList[0].id.should.equal('01');
-            trackList[0].startTime.should.equal('');
-            trackList[0].title.should.equal('Track 1 [By DJ Meow Meow]');
-            trackList[1].id.should.equal('02');
-            trackList[1].startTime.should.equal('');
-            trackList[1].title.should.equal('Track 2 [By MC Woof]');
-            trackList[2].id.should.equal('03');
-            trackList[2].startTime.should.equal('');
-            trackList[2].title.should.equal('Track 3 -- [By DJ Scratchy]');
+          trackList.should.have.length(3);
+          trackList[0].id.should.equal('01');
+          trackList[0].startTime.should.equal('');
+          trackList[0].title.should.equal('Track 1 [By DJ Meow Meow]');
+          trackList[1].id.should.equal('02');
+          trackList[1].startTime.should.equal('');
+          trackList[1].title.should.equal('Track 2 [By MC Woof]');
+          trackList[2].id.should.equal('03');
+          trackList[2].startTime.should.equal('');
+          trackList[2].title.should.equal('Track 3 -- [By DJ Scratchy]');
 
-            done();
-          }
+          done();
         });
       }
     });
@@ -99,35 +91,31 @@ describe('trakker', function() {
       if (err) {
         console.error('Error reading tracklist3.txt');
       } else {
-        trakker.generate(data, function(err, tracks) {
-          if (err) {
-            console.error('Could not process tracks');
-          } else {
-            var trackList = [];
+        trakker.generate(data, function(tracks) {
+          var trackList = [];
 
-            tracks.forEach(function(track) {
-              var newTrack = {
-                id: track.position,
-                startTime: track.startTime,
-                title: track.title
-              }
+          tracks.forEach(function(track) {
+            var newTrack = {
+              id: track.position,
+              startTime: track.startTime,
+              title: track.title
+            }
 
-              trackList.push(newTrack);
-            });
+            trackList.push(newTrack);
+          });
 
-            trackList.should.have.length(3);
-            trackList[0].id.should.equal('01');
-            trackList[0].startTime.should.equal('');
-            trackList[0].title.should.equal('– Track 1 [By DJ Meow Meow]');
-            trackList[1].id.should.equal('02');
-            trackList[1].startTime.should.equal('');
-            trackList[1].title.should.equal('– Track 2 [By MC Woof]');
-            trackList[2].id.should.equal('03');
-            trackList[2].startTime.should.equal('');
-            trackList[2].title.should.equal('– Track 3 -- [By DJ Scratchy]');
+          trackList.should.have.length(3);
+          trackList[0].id.should.equal('01');
+          trackList[0].startTime.should.equal('');
+          trackList[0].title.should.equal('– Track 1 [By DJ Meow Meow]');
+          trackList[1].id.should.equal('02');
+          trackList[1].startTime.should.equal('');
+          trackList[1].title.should.equal('– Track 2 [By MC Woof]');
+          trackList[2].id.should.equal('03');
+          trackList[2].startTime.should.equal('');
+          trackList[2].title.should.equal('– Track 3 -- [By DJ Scratchy]');
 
-            done();
-          }
+          done();
         });
       }
     });
@@ -138,35 +126,31 @@ describe('trakker', function() {
       if (err) {
         console.error('Error reading tracklist4.txt');
       } else {
-        trakker.generate(data, function(err, tracks) {
-          if (err) {
-            console.error('Could not process tracks');
-          } else {
-            var trackList = [];
+        trakker.generate(data, function(tracks) {
+          var trackList = [];
 
-            tracks.forEach(function(track) {
-              var newTrack = {
-                id: track.position,
-                startTime: track.startTime,
-                title: track.title
-              }
+          tracks.forEach(function(track) {
+            var newTrack = {
+              id: track.position,
+              startTime: track.startTime,
+              title: track.title
+            }
 
-              trackList.push(newTrack);
-            });
+            trackList.push(newTrack);
+          });
 
-            trackList.should.have.length(3);
-            trackList[0].id.should.equal('');
-            trackList[0].startTime.should.equal('');
-            trackList[0].title.should.equal('Track 1 [By DJ Meow Meow]');
-            trackList[1].id.should.equal('');
-            trackList[1].startTime.should.equal('');
-            trackList[1].title.should.equal('Track 2 [By MC Woof]');
-            trackList[2].id.should.equal('');
-            trackList[2].startTime.should.equal('');
-            trackList[2].title.should.equal('?');
+          trackList.should.have.length(3);
+          trackList[0].id.should.equal('');
+          trackList[0].startTime.should.equal('');
+          trackList[0].title.should.equal('Track 1 [By DJ Meow Meow]');
+          trackList[1].id.should.equal('');
+          trackList[1].startTime.should.equal('');
+          trackList[1].title.should.equal('Track 2 [By MC Woof]');
+          trackList[2].id.should.equal('');
+          trackList[2].startTime.should.equal('');
+          trackList[2].title.should.equal('?');
 
-            done();
-          }
+          done();
         });
       }
     });

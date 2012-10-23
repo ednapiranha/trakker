@@ -2,7 +2,7 @@
 
 /* Get a string of data and return the tracklist in JSON
  * Requires: content as a string, callback
- * Returns: JSON object if successful, error otherwise
+ * Returns: List of objects if successful, error otherwise
  */
 exports.generate = function(content, callback) {
   var trackLines = content.split(/\n|\r/);
@@ -55,7 +55,7 @@ exports.generate = function(content, callback) {
     trackList.push(trackItem);
 
     if (trackList.length === trackLines.length) {
-      callback(null, trackList);
+      callback(trackList);
     }
   });
 };
