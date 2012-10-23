@@ -1,23 +1,29 @@
 {
-    "name": "trakker",
-    "version": "0.0.1",
-    "descripton": "Convert tracklists to a list of objects",
-    "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/ednapiranha/trakker.git"
-    },
-    "license": "WTFPL",
-    "main": "index.js",
-    "engines": {
-      "node": ">= 0.8.19"
-    },
-    "devDependencies": {
-        "mocha": ">= 1.4.2",
-        "should": ">= 1.1.1"
-    },
-    "keywords": ["tracks", "music", "tracklists"]
-    "scripts": {
-        "test": "make test"
-    }
+  "name": "trakker",
+  "version": "0.0.1",
+  "description": "Convert tracklists to a list of objects",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "should": "~1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.6.0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ednapiranha/trakker.git"
+  },
+  "keywords": [
+    "tracks",
+    "music",
+    "tracklists"
+  ],
+  "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
+  "license": "WTFPL"
 }
