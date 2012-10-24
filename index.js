@@ -2,7 +2,7 @@
 
 /* Get a string of data and return the tracklist in JSON
  * Requires: content as a string, callback
- * Returns: List of objects if successful, error otherwise
+ * Returns: List of objects
  */
 exports.generate = function(content, callback) {
   var trackLines = content.split(/\n|\r/);
@@ -50,7 +50,7 @@ exports.generate = function(content, callback) {
         var title = timeToken.tokenized.join(' ');
 
         var trackItem = {
-          position: position,
+          id: position,
           startTime: startTime,
           title: title
         };
@@ -62,5 +62,5 @@ exports.generate = function(content, callback) {
     }
   });
 
-  callback(trackList);
+  return trackList;
 };
