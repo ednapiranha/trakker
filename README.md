@@ -4,7 +4,7 @@ Convert tracklists to a list of objects.
 
 ## Tracklist Assumptions
 
-You're tracklist is generally in the format of:
+Your tracklist is generally in the format of:
 
     01. [00:00:10] Some track title and/or Producer
 
