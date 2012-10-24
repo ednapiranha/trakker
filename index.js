@@ -13,7 +13,8 @@ exports.generate = function(content, callback) {
 
   var findPosition = function(tokenized) {
     var position = '';
-    if (tokenized[0].match(POSITION_MATCH)) {
+
+    if (tokenized[0].toString().match(POSITION_MATCH)) {
       position = tokenized[0].replace(/[^\d]/gi, '');
       tokenized.splice(0, 1);
     }
@@ -22,7 +23,7 @@ exports.generate = function(content, callback) {
 
   var findStartTime = function(tokenized) {
     var startTime = '';
-    if (tokenized[0].match(TIME_MATCH)) {
+    if (tokenized[0].toString().match(TIME_MATCH)) {
       startTime = tokenized[0].replace(/[^(\d|:)]/gi, '');
       tokenized.splice(0, 1);
     }
@@ -30,32 +31,36 @@ exports.generate = function(content, callback) {
   };
 
   trackLines.forEach(function(track) {
-    var tokenized = track.split(/\s/);
-    var newTokenized = [];
+    try {
+      if (track) {
+        var tokenized = track.split(/\s/);
+        var newTokenized = [];
 
-    tokenized.forEach(function(token) {
-      if (token.trim().length > 0) {
-        newTokenized.push(token);
+        tokenized.forEach(function(token) {
+          if (token.trim().length > 0) {
+            newTokenized.push(token);
+          }
+        });
+
+        var positionToken = findPosition(newTokenized);
+        var position = positionToken.result;
+
+        var timeToken = findStartTime(positionToken.tokenized);
+        var startTime = timeToken.result;
+        var title = timeToken.tokenized.join(' ');
+
+        var trackItem = {
+          position: position,
+          startTime: startTime,
+          title: title
+        };
+
+        trackList.push(trackItem);
       }
-    });
-
-    var positionToken = findPosition(newTokenized);
-    var position = positionToken.result;
-
-    var timeToken = findStartTime(positionToken.tokenized);
-    var startTime = timeToken.result;
-    var title = timeToken.tokenized.join(' ');
-
-    var trackItem = {
-      position: position,
-      startTime: startTime,
-      title: title
-    };
-
-    trackList.push(trackItem);
-
-    if (trackList.length === trackLines.length) {
-      callback(trackList);
+    } catch(err) {
+      console.error(err);
     }
   });
+
+  callback(trackList);
 };
