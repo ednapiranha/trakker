@@ -9,12 +9,11 @@ exports.generate = function(content, callback) {
   var trackList = [];
   var trackCount = 0;
   var POSITION_MATCH = /((\[|\(|\.)?)\d{1,}((\]|\)|\.)?)/i;
-  var TIME_MATCH = /((\[|\(|\.)?)\d{2,}:\d{2}:\d{2}((\]|\)|\.)?)/i;
+  var TIME_MATCH = /^((\[|\(|\.)?)[0-9]{2,}:[0-9]{2}(:[0-9]{2})?((\]|\)|\.)?)$/i;
 
   var findPosition = function(tokenized) {
     var position = '';
-
-    if (tokenized[0].toString().match(POSITION_MATCH)) {
+    if (tokenized[0].indexOf(':') < 0 && tokenized[0].toString().match(POSITION_MATCH)) {
       position = tokenized[0].replace(/[^\d]/gi, '');
       tokenized.splice(0, 1);
     }
