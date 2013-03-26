@@ -1,6 +1,6 @@
 {
   "name": "trakker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Convert tracklists to a list of objects",
   "main": "index.js",
   "directories": {
@@ -25,5 +25,5 @@
     "tracklists"
   ],
   "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
-  "license": "WTFPL"
+  "license": "BSD"
 }
