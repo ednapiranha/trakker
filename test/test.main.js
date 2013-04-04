@@ -107,4 +107,41 @@ describe('trakker', function() {
       }
     });
   });
+
+  it('generates tracklist type 5', function(done) {
+    readFile('test/tracklist5.txt', function(err, data) {
+      if (err) {
+        console.error('Error reading tracklist5.txt');
+      } else {
+        var trackList = trakker.generate(data);
+
+        trackList.should.have.length(3);
+        trackList[0].id.should.equal('');
+        trackList[0].startTime.should.equal('1:10:00');
+        trackList[0].title.should.equal('Track 1 By DJ Meow Meow');
+        trackList[1].id.should.equal('');
+        trackList[1].startTime.should.equal('2:30:10');
+        trackList[1].title.should.equal('Track 2 By MC Woof');
+        trackList[2].id.should.equal('');
+        trackList[2].startTime.should.equal('2:30');
+        trackList[2].title.should.equal('Track 2 By MC Woofy');
+
+        done();
+      }
+    });
+  });
+
+  it('generates tracklist type 6', function(done) {
+    readFile('test/tracklist6.txt', function(err, data) {
+      if (err) {
+        console.error('Error reading tracklist6.txt');
+      } else {
+        var trackList = trakker.generate(data);
+
+        trackList.should.have.length(0);
+
+        done();
+      }
+    });
+  });
 })

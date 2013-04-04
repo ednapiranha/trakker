@@ -5,11 +5,11 @@
  * Returns: List of objects
  */
 exports.generate = function(content, callback) {
-  var trackLines = content.split(/\n|\r/);
+  var trackLines = content.toString().split(/\n|\r/);
   var trackList = [];
   var trackCount = 0;
   var POSITION_MATCH = /((\[|\(|\.)?)\d{1,}((\]|\)|\.)?)/i;
-  var TIME_MATCH = /^((\[|\(|\.)?)[0-9]{2,}:[0-9]{2}(:[0-9]{2})?((\]|\)|\.)?)$/i;
+  var TIME_MATCH = /^((\[|\(|\.)?)[0-9]{1,3}:[0-9]{1,2}(:[0-9]{0,2})?((\]|\)|\.)?)$/i;
 
   var findPosition = function(tokenized) {
     var position = '';
