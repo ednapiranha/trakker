@@ -136,10 +136,11 @@ describe('trakker', function() {
       if (err) {
         console.error('Error reading tracklist6.txt');
       } else {
-        var trackList = trakker.generate(data);
-
-        trackList.should.have.length(0);
-
+        try {
+          trakker.generate(data);
+        } catch (err) {
+          err.toString().should.equal('Error: Invalid tracklist format');
+        }
         done();
       }
     });

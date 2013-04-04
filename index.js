@@ -5,7 +5,11 @@
  * Returns: List of objects
  */
 exports.generate = function(content, callback) {
-  var trackLines = content.toString().split(/\n|\r/);
+  if (!content) {
+    throw new Error('Invalid tracklist format');
+  }
+
+  var trackLines = content.split(/\n|\r/);
   var trackList = [];
   var trackCount = 0;
   var POSITION_MATCH = /((\[|\(|\.)?)\d{1,}((\]|\)|\.)?)/i;
