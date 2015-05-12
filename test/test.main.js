@@ -139,7 +139,7 @@ describe('trakker', function() {
         try {
           trakker.generate(data);
         } catch (err) {
-          err.toString().should.equal('Error: Invalid tracklist format');
+          err.toString().should.equal('Error: Tracklist content required');
         }
         done();
       }

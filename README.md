@@ -16,14 +16,23 @@ Or
 
     Some track title and/or Producer
 
-Anyway, you get the idea!
-
 Trakker only accepts a string input, not a file. Figure that out separately - or check the test for an example.
 
 ## Installation
 
 npm install trakker
 
+## Example of reading a text file
+
+var fs = require('fs');
+var trakker = require('trakker');
+
+fs.readFile('tracklist.txt', 'utf8', function (err, data) {
+  var trackList = trakker.generate(data);
+
+  console.log(trackList);
+});
+
 ## Tests
 
-make test
+npm test

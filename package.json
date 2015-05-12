@@ -1,19 +1,19 @@
 {
   "name": "trakker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Convert tracklists to a list of objects",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "should": ">= 1.2.0"
+    "should": "~6.0.1"
   },
   "devDependencies": {
-    "mocha": ">= 1.6.0"
+    "mocha": "~2.2.4"
   },
   "scripts": {
-    "test": "make test"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
